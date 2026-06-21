@@ -70,7 +70,8 @@
   "about": {
     "header": {
       "title": "Nuestra Logia de Código",
-      "subtitle": "Conoce los cimientos y el equipo técnico de élite que hace posible la magia digital."
+      "subtitle": "Conoce los cimientos y el equipo técnico de élite que hace posible la magia digital.",
+      "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop"
     },
     "pillars": [
       {
@@ -117,7 +118,8 @@
   "downloads": {
     "header": {
       "title": "Bóveda de Recursos",
-      "subtitle": "Accede a herramientas oficiales, manuales de servicio y utilitarios para soporte e integración."
+      "subtitle": "Accede a herramientas oficiales, manuales de servicio y utilitarios para soporte e integración.",
+      "image": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop"
     },
     "resources": [
       {
@@ -152,7 +154,8 @@
   "support": {
     "header": {
       "title": "Portal de Soporte & Agente IA",
-      "subtitle": "Registra una consulta técnica tradicional o chatea en vivo con nuestro agente de Call Center entrenado."
+      "subtitle": "Registra una consulta técnica tradicional o chatea en vivo con nuestro agente de Call Center entrenado.",
+      "image": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200&auto=format&fit=crop"
     },
     "info": {
       "title": "Información de Soporte",
