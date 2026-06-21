@@ -7,6 +7,15 @@ export default function About() {
   const { about } = contentData;
   const { header, pillars, team } = about;
 
+  const getImageUrl = (imagePath) => {
+    if (!imagePath) return '';
+    if (imagePath.startsWith('http://') || imagePath.startsWith('https://') || imagePath.startsWith('data:')) {
+      return imagePath;
+    }
+    const cmsBaseUrl = import.meta.env.VITE_CMS_URL || 'http://localhost:1337';
+    return `${cmsBaseUrl}${imagePath}`;
+  };
+
   return (
     <div className="relative overflow-hidden py-16 md:py-24">
       {/* Background radial highlight */}
@@ -16,18 +25,26 @@ export default function About() {
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
-        {/* Header */}
-        <section className="text-left max-w-4xl mb-20">
-          <div className="inline-flex items-center space-x-1.5 rounded-full bg-teal-50 border border-teal-200/50 px-3 py-1 text-xs text-teal-700 mb-6 font-mono">
-            <Terminal className="h-3.5 w-3.5 text-teal-600" />
-            <span>sys.log --profile --about</span>
+        {/* Header Banner Container */}
+        <section 
+          className="relative overflow-hidden rounded-3xl border border-slate-200/50 shadow-xl mb-20 bg-cover bg-center min-h-[400px] md:min-h-[500px] flex items-center text-left"
+          style={{ backgroundImage: `url(${getImageUrl(header.image)})` }}
+        >
+          {/* Dark overlay for readability */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#030712]/98 via-[#0A1931]/92 to-[#0A1931]/30 z-0"></div>
+          
+          <div className="relative z-10 py-20 md:py-28 px-8 sm:px-12 max-w-4xl w-full">
+            <div className="inline-flex items-center space-x-1.5 rounded-full bg-teal-500/10 border border-teal-400/30 px-3 py-1 text-xs text-teal-300 mb-6 font-mono backdrop-blur-sm">
+              <Terminal className="h-3.5 w-3.5 text-teal-400" />
+              <span>sys.log --profile --about</span>
+            </div>
+            <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-white mb-6">
+              Nuestra <span className="bg-gradient-to-r from-teal-300 via-teal-400 to-cyan-300 bg-clip-text text-transparent">Mente Colectiva</span>
+            </h1>
+            <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+              {header.subtitle}
+            </p>
           </div>
-          <h1 className="text-4xl sm:text-6xl font-black tracking-tight text-[#0A1931] mb-6">
-            Nuestra <span className="text-gradient-purple-gold">Mente Colectiva</span>
-          </h1>
-          <p className="text-sm sm:text-base text-slate-500 leading-relaxed max-w-2xl">
-            {header.subtitle}
-          </p>
         </section>
 
         {/* Pillars (Mission & Vision) Asymmetric Grid */}

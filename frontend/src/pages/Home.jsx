@@ -52,13 +52,13 @@ export default function Home() {
         
         {/* PREMIUM ASYMMETRIC HERO SECTION */}
         <section 
-          className="relative overflow-hidden rounded-3xl border border-slate-200/50 shadow-xl my-6 bg-cover bg-center"
+          className="relative overflow-hidden rounded-3xl border border-slate-200/50 shadow-xl my-6 bg-cover bg-center min-h-[500px] md:min-h-[600px] flex items-center"
           style={{ backgroundImage: `url(${getImageUrl(hero.image)})` }}
         >
           {/* Overlay gradient for readability and premium look */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#030712]/98 via-[#0A1931]/92 to-[#0A1931]/30 z-0"></div>
           
-          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center py-16 md:py-20 px-8 sm:px-12">
+          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center py-20 md:py-28 px-8 sm:px-12 w-full">
             
             {/* Left Column: Copy & Actions */}
             <div className="lg:col-span-7 flex flex-col items-start text-left z-10">
