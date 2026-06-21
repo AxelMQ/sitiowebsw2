@@ -56,7 +56,7 @@ export default function Home() {
           style={{ backgroundImage: `url(${getImageUrl(hero.image)})` }}
         >
           {/* Overlay gradient for readability and premium look */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0A1931]/95 via-[#0A1931]/85 to-[#007A78]/35 z-0"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#030712]/98 via-[#0A1931]/92 to-[#0A1931]/30 z-0"></div>
           
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center py-16 md:py-20 px-8 sm:px-12">
             
@@ -69,7 +69,7 @@ export default function Home() {
 
               <h1 className="text-4xl sm:text-7xl font-black tracking-tight leading-[1.05] text-white">
                 Código Limpio.<br />
-                <span className="text-gradient-purple-gold">Software Mágico.</span>
+                <span className="bg-gradient-to-r from-teal-300 via-teal-400 to-cyan-300 bg-clip-text text-transparent">Software Mágico.</span>
               </h1>
 
               <p className="mt-6 text-sm sm:text-base text-slate-300 max-w-xl leading-relaxed">
