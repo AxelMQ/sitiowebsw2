@@ -1,0 +1,165 @@
+{
+  "companyName": "Lumos Logic | Software Development",
+  "companySlogan": "Iluminamos el camino digital de nuestros clientes. Desarrollamos soluciones de software claras y eficientes para resolver tus problemas más oscuros.",
+  "navigation": [
+    { "name": "Inicio", "path": "/" },
+    { "name": "Quiénes Somos", "path": "/about" },
+    { "name": "Descargas", "path": "/downloads" },
+    { "name": "Soporte", "path": "/support" }
+  ],
+  "home": {
+    "hero": {
+      "title": "Desarrollo de Software con Poder Inteligente",
+      "subtitle": "En Lumos Logic forjamos soluciones de software avanzadas con toques mágicos e inteligencia artificial. Desplegamos sistemas escalables de alta disponibilidad y soporte instantáneo.",
+      "ctaPrimary": "Explorar Servicios",
+      "ctaSecondary": "Agente Call Center",
+      "image": "https://images.unsplash.com/photo-1605379399642-870262d3d051?q=80&w=1206&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    "features": {
+      "title": "Nuestra Esencia Tecnológica",
+      "subtitle": "Por qué las startups tecnológicas y corporativos confían en nuestros hechizos de código.",
+      "items": [
+        {
+          "id": "f1",
+          "title": "Arquitectura Hermética",
+          "description": "Diseñamos sistemas con seguridad criptográfica de grado militar, protegiendo tus datos como en una bóveda arcana.",
+          "icon": "Lock"
+        },
+        {
+          "id": "f2",
+          "title": "Rendimiento Ultrasónico",
+          "description": "Código compilado y optimizado al extremo. Logramos latencias menores a 10ms en cargas concurrentes masivas.",
+          "icon": "Cpu"
+        },
+        {
+          "id": "f3",
+          "title": "Inteligencia Integrada",
+          "description": "Modelos LLMs de última generación integrados directamente en el core de tu lógica de negocio.",
+          "icon": "Sparkles"
+        }
+      ]
+    },
+    "services": {
+      "title": "Servicios de Alta Ingeniería",
+      "subtitle": "Nuestras especialidades técnicas diseñadas para catapultar tu producto al siguiente nivel.",
+      "items": [
+        {
+          "id": "s1",
+          "title": "Desarrollo de Agentes de IA",
+          "description": "Entrenamiento y despliegue de agentes autónomos y sistemas de call center automatizados con Gemini 1.5 Flash y modelos de frontera.",
+          "icon": "Headphones",
+          "tag": "Popular"
+        },
+        {
+          "id": "s2",
+          "title": "Sistemas de Bóveda y Blockchain",
+          "description": "Desarrollo de contratos inteligentes robustos, wallets descentralizados e integraciones web3 para máxima trazabilidad y seguridad.",
+          "icon": "Shield",
+          "tag": "Seguro"
+        },
+        {
+          "id": "s3",
+          "title": "Infraestructura Cloud Native",
+          "description": "Sistemas distribuidos en Kubernetes, microservicios en Go/Rust y pipelines de CI/CD autogestionados y tolerantes a fallos.",
+          "icon": "Compass",
+          "tag": "Escalable"
+        }
+      ]
+    }
+  },
+  "about": {
+    "header": {
+      "title": "Nuestra Logia de Código",
+      "subtitle": "Conoce los cimientos y el equipo técnico de élite que hace posible la magia digital."
+    },
+    "pillars": [
+      {
+        "id": "p1",
+        "title": "Nuestra Misión",
+        "description": "Desmitificar la complejidad tecnológica construyendo herramientas de software pulidas, seguras e intuitivas que empoderen a las empresas del mañana.",
+        "icon": "Compass"
+      },
+      {
+        "id": "p2",
+        "title": "Nuestra Visión",
+        "description": "Convertirnos en el estándar global de agencias de desarrollo, donde la inteligencia artificial y la ingeniería humana colisionan para crear soluciones inigualables.",
+        "icon": "Sparkles"
+      }
+    ],
+    "team": {
+      "title": "Los Spellcasters del Core",
+      "subtitle": "Nuestros magos e ingenieros full-stack especializados en convertir ideas abstractas en binarios estables.",
+      "members": [
+        {
+          "id": "m1",
+          "name": "Sarah Connor",
+          "role": "Lead Architect & AI Systems",
+          "bio": "Especialista en redes neuronales, automatización de infraestructura en la nube y contención de Skynet.",
+          "avatar": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200"
+        },
+        {
+          "id": "m2",
+          "name": "Alex Mercer",
+          "role": "Senior Full-Stack & Cryptography",
+          "bio": "Apasionado por Rust, bases de datos distribuidas y el diseño de contratos inteligentes seguros en Ethereum.",
+          "avatar": "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=200"
+        },
+        {
+          "id": "m3",
+          "name": "Morgan LeFay",
+          "role": "Frontend Magic & UX Designer",
+          "bio": "Dedicada a crear interfaces inmersivas con micro-animaciones fluidas, esquemas oscuros y efectos visuales hipnóticos.",
+          "avatar": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=200"
+        }
+      ]
+    }
+  },
+  "downloads": {
+    "header": {
+      "title": "Bóveda de Recursos",
+      "subtitle": "Accede a herramientas oficiales, manuales de servicio y utilitarios para soporte e integración."
+    },
+    "resources": [
+      {
+        "id": "r1",
+        "name": "Brochure Corporativo de Servicios",
+        "description": "Portafolio detallado con nuestros servicios, tecnologías de cabecera, casos de éxito y tarifas de consultoría para proyectos medianos y grandes.",
+        "version": "v2026.1",
+        "size": "4.2 MB",
+        "fileType": "PDF Document",
+        "icon": "FileDown"
+      },
+      {
+        "id": "r2",
+        "name": "Cliente de Soporte Remoto",
+        "description": "Utilidad de conexión remota encriptada punto a punto para que nuestros ingenieros atiendan incidentes de infraestructura crítica en tiempo real.",
+        "version": "v1.8.4",
+        "size": "18.5 MB",
+        "fileType": "Windows Executable",
+        "icon": "Settings"
+      },
+      {
+        "id": "r3",
+        "name": "CLI Shell Developer Tool",
+        "description": "Herramienta de terminal oficial de Lumos Logic para interactuar con tus instancias en la nube y realizar diagnósticos de red rápidos.",
+        "version": "v0.9.1-beta",
+        "size": "8.7 MB",
+        "fileType": "Tarball / ZIP",
+        "icon": "Terminal"
+      }
+    ]
+  },
+  "support": {
+    "header": {
+      "title": "Portal de Soporte & Agente IA",
+      "subtitle": "Registra una consulta técnica tradicional o chatea en vivo con nuestro agente de Call Center entrenado."
+    },
+    "info": {
+      "title": "Información de Soporte",
+      "email": "soporte@lumoslogic.dev",
+      "phone": "+1 (555) 404-LUMS",
+      "hours": "Lunes a Viernes - 24 Horas",
+      "warning": "Nota: Si tu consulta es técnica y cuentas con un Acuerdo de Nivel de Servicio (SLA), por favor indica tu número de ticket para agilizar la derivación al ingeniero de guardia."
+    }
+  }
+}

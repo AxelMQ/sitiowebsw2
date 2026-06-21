@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .bg-grid-pattern {
+    background-size: 50px 50px;
+    background-image: 
+      linear-gradient(to right, rgba(13, 122, 120, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(13, 122, 120, 0.04) 1px, transparent 1px);
+  }
+  
+  /* Premium Light-mode / Navy-accented card system */
+  .glow-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(226, 232, 240, 1); /* border-slate-200 */
+    border-radius: 24px;
+    backdrop-filter: blur(12px);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04);
+  }
+  
+  .glow-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(0, 122, 120, 0.25) 0%, transparent 60%, rgba(10, 25, 49, 0.1) 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    opacity: 0.6;
+  }
+
+  .glow-card:hover {
+    border-color: rgba(0, 122, 120, 0.35);
+    box-shadow: 
+      0 12px 30px -8px rgba(15, 23, 42, 0.08),
+      0 0 20px rgba(0, 122, 120, 0.05);
+    transform: translateY(-4px);
+  }
+  
+  .glow-card:hover::before {
+    background: linear-gradient(135deg, rgba(0, 122, 120, 0.5) 0%, rgba(10, 25, 49, 0.3) 100%);
+    opacity: 1;
+  }
+
+  /* Custom Corporate Navy & Teal text gradients */
+  .text-gradient-purple-gold {
+    background: linear-gradient(135deg, #0A1931 20%, #007A78 80%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .text-gradient-cyan-purple {
+    background: linear-gradient(135deg, #007A78 10%, #0F1E36 90%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Global background overlay glows */
+  .bg-radial-aura {
+    background: radial-gradient(circle at center, rgba(0, 122, 120, 0.05) 0%, transparent 70%);
+  }
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(241, 245, 249, 1);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 122, 120, 0.2);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 122, 120, 0.45);
+}
+
+/* Custom floating and pulse animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-6px) rotate(0.5deg); }
+}
+
+.animate-float {
+  animation: float 6s infinite ease-in-out;
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.1; transform: scale(1); }
+  50% { opacity: 0.2; transform: scale(1.05); }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 8s infinite ease-in-out;
+}
