@@ -16,7 +16,7 @@ INFORMACIÓN DETALLADA DE LA EMPRESA:
 - Ubicación: ${data.company.location}
 - Horarios de atención: ${data.company.hours}
 - Email de contacto: ${data.company.contact.email}
-- Página web: ${data.company.contact.website}
+- Página web: ${process.env.FRONTEND_URL || data.company.contact.website}
 
 SERVICIOS QUE OFRECEMOS:
 ${data.services.map(s => `- ${s.name}: ${s.description}`).join('\n')}

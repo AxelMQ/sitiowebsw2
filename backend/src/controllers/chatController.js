@@ -12,8 +12,19 @@ export async function chatHandler(req, res) {
     res.json({ reply });
   } catch (error) {
     console.error("Error en el Controlador de Chat:", error);
+    let userFriendlyError = "Ocurrió un error al procesar el mensaje con el Agente de IA.";
+    const errMsg = typeof error === 'string' ? error : (error.message || "");
+    
+    if (errMsg.includes("429") || errMsg.includes("quota") || errMsg.includes("Quota") || errMsg.includes("RESOURCE_EXHAUSTED")) {
+      userFriendlyError = "El agente de soporte inteligente ha excedido su límite de consultas gratuitas de hoy. Por favor, intenta de nuevo en unos minutos o contáctanos por correo electrónico.";
+    } else if (errMsg.includes("API key") || errMsg.includes("key not found") || errMsg.includes("API_KEY")) {
+      userFriendlyError = "Error de autenticación con el proveedor de IA. Por favor, verifica la configuración de la API Key en el servidor.";
+    } else {
+      userFriendlyError = "El agente de soporte no pudo responder a tu solicitud en este momento. Por favor, intenta de nuevo.";
+    }
+
     res.status(500).json({ 
-      error: error.message || "Ocurrió un error al procesar el mensaje con el Agente de IA." 
+      error: userFriendlyError
     });
   }
 }
