@@ -29,7 +29,7 @@ ${data.team.map(m => `- ${m.name} (${m.role}): ${m.bio} GitHub: ${m.github}`).jo
 }
 
 export async function handleChatSession(history, message) {
-  const modelName = process.env.GEMINI_MODEL || 'gemini-1.5-flash';
+  const modelName = process.env.GEMINI_MODEL || 'gemini-2.5-flash';
   const companyName = process.env.COMPANY_NAME || 'Lumos Logic | Software Development';
   const companySlogan = process.env.COMPANY_SLOGAN || 'Iluminamos el camino digital de nuestros clientes. Desarrollamos soluciones de software claras y eficientes para resolver tus problemas más oscuros.';
 
