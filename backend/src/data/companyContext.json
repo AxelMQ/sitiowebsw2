@@ -1,0 +1,39 @@
+{
+  "company": {
+    "name": "Lumos Logic",
+    "location": "Santa Cruz de la Sierra, Bolivia (UAGRM - FICCT)",
+    "hours": "Lunes a Viernes, de 8:00 AM a 6:00 PM",
+    "contact": {
+      "email": "soporte@lumoslogic.com",
+      "website": "http://localhost:5173"
+    }
+  },
+  "services": [
+    {
+      "name": "Desarrollo de Software a Medida",
+      "description": "Aplicaciones web modernas, aplicaciones móviles nativas/híbridas e integraciones de sistemas robustos."
+    },
+    {
+      "name": "Integración de Inteligencia Artificial",
+      "description": "Creación e integración de agentes conversacionales (Call Centers inteligentes) con tecnologías de punta como Gemini."
+    },
+    {
+      "name": "Arquitectura Cloud & DevOps",
+      "description": "Despliegues seguros, automatización de infraestructura en la nube y configuración de pipelines de integración continua."
+    }
+  ],
+  "team": [
+    {
+      "name": "Fernando Daniel Cossio Aranda",
+      "role": "Developer",
+      "bio": "Desarrollador Full-Stack especializado en arquitectura backend, infraestructura cloud y diseño de API robustas y escalables.",
+      "github": "https://github.com/FernandoCossio"
+    },
+    {
+      "name": "Axel Alexander Mamani Quispia",
+      "role": "Developer",
+      "bio": "Desarrollador Full-Stack enfocado en interfaces de usuario interactivas, optimización de rendimiento en el frontend y modelado de datos.",
+      "github": "https://github.com/AxelMQ"
+    }
+  ]
+}
