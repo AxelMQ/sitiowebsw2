@@ -70,9 +70,6 @@ export default function Footer() {
 
         <div className="mt-12 border-t border-slate-800 pt-6 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500">
           <p>&copy; {currentYear} {logoText}. Todos los derechos reservados.</p>
-          <p className="flex items-center mt-4 md:mt-0">
-            Desarrollado con <Heart className="h-3 w-3 text-teal-500 mx-1 fill-current" /> por Lumos Logic Team
-          </p>
         </div>
       </div>
     </footer>

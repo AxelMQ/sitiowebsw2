@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { DownloadCloud, CheckCircle, ShieldAlert } from 'lucide-react';
 import contentData from '../data/content.json';
 import DynamicIcon from '../components/DynamicIcon';
+import { downloadResource } from '../utils/downloadHelper';
 
 export default function Downloads() {
   const { downloads } = contentData;
@@ -16,12 +17,10 @@ export default function Downloads() {
     setDownloadingId(resource.id);
     setDownloadSuccess(null);
 
-    // Simulate download delay
     setTimeout(() => {
       setDownloadingId(null);
       setDownloadSuccess(resource.name);
-      
-      // Clear success notification
+      downloadResource(resource);
       setTimeout(() => {
         setDownloadSuccess(null);
       }, 4000);
