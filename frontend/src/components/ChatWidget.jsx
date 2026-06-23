@@ -16,6 +16,127 @@ export default function ChatWidget({ isCompact = false }) {
   const [error, setError] = useState(null);
 
   const messagesEndRef = useRef(null);
+  const formatMessageText = (text, sender) => {
+    const isBot = sender === 'bot';
+    const lines = text.split('\n');
+    
+    return lines.map((line, lineIdx) => {
+      let isListItem = false;
+      let cleanLine = line;
+      
+      if (line.trim().startsWith('*') || line.trim().startsWith('-')) {
+        isListItem = true;
+        cleanLine = line.trim().replace(/^[*-\s]\s*/, '');
+      }
+      
+      const parts = [];
+      const boldRegex = /\*\*([^*]+)\*\*/g;
+      let lastIndex = 0;
+      let match;
+      
+      const parseUrlsAndLinks = (segment, keyPrefix) => {
+        const mdLinkRegex = /\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g;
+        const subParts = [];
+        let lastIdx = 0;
+        let mdMatch;
+        
+        while ((mdMatch = mdLinkRegex.exec(segment)) !== null) {
+          const textBefore = segment.substring(lastIdx, mdMatch.index);
+          if (textBefore) {
+            subParts.push(...parseRawUrls(textBefore, `${keyPrefix}-before-${mdMatch.index}`));
+          }
+          
+          const linkText = mdMatch[1];
+          const url = mdMatch[2];
+          subParts.push(
+            <a 
+              key={`${keyPrefix}-md-${mdMatch.index}`} 
+              href={url} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className={isBot ? "text-teal-600 hover:text-indigo-600 underline font-semibold" : "text-teal-200 hover:text-white underline font-semibold"}
+            >
+              {linkText}
+            </a>
+          );
+          lastIdx = mdLinkRegex.lastIndex;
+        }
+        
+        const textAfter = segment.substring(lastIdx);
+        if (textAfter) {
+          subParts.push(...parseRawUrls(textAfter, `${keyPrefix}-after`));
+        }
+        return subParts;
+      };
+
+      const parseRawUrls = (text, keyPrefix) => {
+        const urlRegex = /(https?:\/\/[^\s`!()\[\]{};:'".,<>?«»“”‘’]+)/g;
+        const subParts = [];
+        let lastIdx = 0;
+        let urlMatch;
+        
+        while ((urlMatch = urlRegex.exec(text)) !== null) {
+          const textBefore = text.substring(lastIdx, urlMatch.index);
+          if (textBefore) subParts.push(textBefore);
+          
+          const url = urlMatch[0];
+          subParts.push(
+            <a 
+              key={`${keyPrefix}-raw-${urlMatch.index}`} 
+              href={url} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className={isBot ? "text-teal-600 hover:text-indigo-650 underline break-all font-semibold" : "text-teal-200 hover:text-white underline break-all font-semibold"}
+            >
+              {url}
+            </a>
+          );
+          lastIdx = urlRegex.lastIndex;
+        }
+        
+        const textAfter = text.substring(lastIdx);
+        if (textAfter) subParts.push(textAfter);
+        return subParts;
+      };
+
+      boldRegex.lastIndex = 0;
+      
+      while ((match = boldRegex.exec(cleanLine)) !== null) {
+        const textBefore = cleanLine.substring(lastIndex, match.index);
+        if (textBefore) {
+          parts.push(...parseUrlsAndLinks(textBefore, `line-${lineIdx}-before-${match.index}`));
+        }
+        
+        const boldText = match[1];
+        parts.push(
+          <strong key={`line-${lineIdx}-bold-${match.index}`} className={isBot ? "font-bold text-slate-900 animate-pulse-subtle" : "font-extrabold text-white"}>
+            {boldText}
+          </strong>
+        );
+        lastIndex = boldRegex.lastIndex;
+      }
+      
+      const textAfter = cleanLine.substring(lastIndex);
+      if (textAfter) {
+        parts.push(...parseUrlsAndLinks(textAfter, `line-${lineIdx}-after`));
+      }
+      
+      if (isListItem) {
+        return (
+          <div key={lineIdx} className={`flex items-start pl-3 my-1 ${isBot ? 'text-slate-700' : 'text-slate-100'}`}>
+            <span className={isBot ? "mr-2 text-teal-500 shrink-0 font-bold" : "mr-2 text-teal-300 shrink-0 font-bold"}>•</span>
+            <span className="flex-1">{parts}</span>
+          </div>
+        );
+      }
+      
+      return (
+        <p key={lineIdx} className="min-h-[1rem]">
+          {parts}
+        </p>
+      );
+    });
+  };
 
   // Auto-scroll to bottom
   const scrollToBottom = () => {
@@ -145,7 +266,7 @@ export default function ChatWidget({ isCompact = false }) {
                   ? 'bg-[#007A78] text-white rounded-tr-none font-medium'
                   : 'bg-white text-slate-700 border border-slate-100 rounded-tl-none'
               }`}>
-                <p className="whitespace-pre-wrap">{msg.text}</p>
+                <div className="space-y-1">{formatMessageText(msg.text, msg.sender)}</div>
               </div>
               <span className={`text-[10px] text-slate-400 mt-1 ${msg.sender === 'user' ? 'text-right' : ''}`}>
                 {msg.time}
