@@ -140,7 +140,7 @@ export default function ChatWidget({ isCompact = false }) {
 
   // Auto-scroll to bottom
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   };
 
   useEffect(() => {
@@ -221,7 +221,7 @@ export default function ChatWidget({ isCompact = false }) {
   ];
 
   return (
-    <div className={`flex flex-col h-full rounded-3xl border border-slate-200 bg-white shadow-lg overflow-hidden ${isCompact ? 'max-h-[500px]' : 'h-[600px]'}`}>
+    <div className={`flex flex-col rounded-3xl border border-slate-200 bg-white shadow-lg overflow-hidden ${isCompact ? 'h-[500px]' : 'h-[600px]'}`}>
       
       {/* Chat Header */}
       <div className="flex items-center justify-between bg-gradient-to-r from-[#0B1A30] to-[#122A4A] p-4 text-white">
