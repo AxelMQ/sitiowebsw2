@@ -22,20 +22,38 @@ export default function Support() {
     });
   };
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
     setFormStatus('loading');
     
-    // Simulate API request to register ticket
-    setTimeout(() => {
+    try {
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+      const response = await fetch(`${apiUrl}/api/send-email`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formState)
+      });
+      
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.error || 'No se pudo enviar el correo de soporte. Inténtalo de nuevo más tarde.');
+      }
+      
       setFormStatus('success');
       setFormState({ name: '', email: '', ticketNumber: '', message: '' });
       
-      // Clear success message
       setTimeout(() => {
         setFormStatus(null);
-      }, 5000);
-    }, 1500);
+      }, 7000);
+    } catch (err) {
+      console.error(err);
+      setFormStatus({ error: err.message });
+      setTimeout(() => {
+        setFormStatus(null);
+      }, 8000);
+    }
   };
 
   const getImageUrl = (imagePath) => {
@@ -91,8 +109,18 @@ export default function Support() {
                 <div className="mb-6 rounded-xl bg-emerald-50 border border-emerald-250 p-4 text-emerald-800 flex items-start space-x-3 shadow-sm">
                   <CheckCircle className="h-5 w-5 flex-shrink-0 text-emerald-600 mt-0.5" />
                   <div className="text-sm">
-                    <p className="font-bold">¡Formulario Enviado!</p>
-                    <p className="text-xs text-slate-600 mt-1">Hemos registrado tu ticket de soporte simulado. Un ingeniero del Core evaluará tu caso a la brevedad.</p>
+                    <p className="font-bold">¡Solicitud Enviada!</p>
+                    <p className="text-xs text-slate-650 mt-1">Hemos registrado tu ticket de soporte y notificado al Core Team por correo electrónico. Revisa tu bandeja de entrada.</p>
+                  </div>
+                </div>
+              )}
+
+              {formStatus && formStatus.error && (
+                <div className="mb-6 rounded-xl bg-red-50 border border-red-200 p-4 text-red-805 flex items-start space-x-3 shadow-sm">
+                  <AlertTriangle className="h-5 w-5 flex-shrink-0 text-red-600 mt-0.5" />
+                  <div className="text-sm">
+                    <p className="font-bold">Falla en el envío</p>
+                    <p className="text-xs text-slate-650 mt-1">{formStatus.error}</p>
                   </div>
                 </div>
               )}
