@@ -1,5 +1,5 @@
 import React from 'react';
-import { Eye, Rocket, Github, Compass, ShieldAlert, Cpu, Sparkles, Terminal, Code } from 'lucide-react';
+import { Eye, Rocket, Github, Compass, ShieldAlert, Cpu, Sparkles, Terminal, Code, User } from 'lucide-react';
 import contentData from '../data/content.json';
 import DynamicIcon from '../components/DynamicIcon';
 
@@ -91,11 +91,11 @@ export default function About() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="flex flex-col md:flex-row justify-center items-stretch gap-8 flex-wrap">
             {team.members.map((member, idx) => (
               <div
                 key={member.id}
-                className="glow-card p-6 flex flex-col justify-between overflow-hidden"
+                className="glow-card p-6 flex flex-col justify-between overflow-hidden w-full md:max-w-sm"
               >
                 {/* Developer ID Card Styling */}
                 <div>
@@ -109,12 +109,18 @@ export default function About() {
 
                   {/* Avatar and name details */}
                   <div className="flex items-center space-x-4 mb-6">
-                    <div className="relative h-16 w-16 rounded-2xl p-[1px] bg-gradient-to-tr from-teal-400 to-indigo-600 shadow-sm shrink-0">
-                      <img
-                        src={member.avatar}
-                        alt={member.name}
-                        className="h-full w-full rounded-2xl object-cover bg-slate-900"
-                      />
+                    <div className="relative h-16 w-16 rounded-2xl p-[1px] bg-gradient-to-tr from-teal-400 to-indigo-600 shadow-sm shrink-0 flex items-center justify-center">
+                      {member.avatar ? (
+                        <img
+                          src={getImageUrl(member.avatar)}
+                          alt={member.name}
+                          className="h-full w-full rounded-2xl object-cover bg-slate-900"
+                        />
+                      ) : (
+                        <div className="flex h-full w-full items-center justify-center rounded-2xl bg-slate-900 text-teal-400">
+                          <User className="h-7 w-7" />
+                        </div>
+                      )}
                     </div>
                     <div>
                       <h3 className="text-lg font-bold text-[#0A1931]">

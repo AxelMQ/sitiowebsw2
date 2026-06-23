@@ -88,29 +88,22 @@
       }
     ],
     "team": {
-      "title": "Los Spellcasters del Core",
-      "subtitle": "Nuestros magos e ingenieros full-stack especializados en convertir ideas abstractas en binarios estables.",
+      "title": "Equipo de Desarrollo Core",
+      "subtitle": "Ingenieros de software dedicados a diseñar, construir y desplegar soluciones web modernas y sistemas inteligentes.",
       "members": [
         {
           "id": "m1",
-          "name": "Sarah Connor",
-          "role": "Lead Architect & AI Systems",
-          "bio": "Especialista en redes neuronales, automatización de infraestructura en la nube y contención de Skynet.",
+          "name": "Fernando Daniel Cossio Aranda",
+          "role": "Developer",
+          "bio": "Desarrollador Full-Stack especializado en arquitectura backend, infraestructura cloud y diseño de API robustas y escalables.",
           "avatar": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200"
         },
         {
           "id": "m2",
-          "name": "Alex Mercer",
-          "role": "Senior Full-Stack & Cryptography",
-          "bio": "Apasionado por Rust, bases de datos distribuidas y el diseño de contratos inteligentes seguros en Ethereum.",
-          "avatar": "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=200"
-        },
-        {
-          "id": "m3",
-          "name": "Morgan LeFay",
-          "role": "Frontend Magic & UX Designer",
-          "bio": "Dedicada a crear interfaces inmersivas con micro-animaciones fluidas, esquemas oscuros y efectos visuales hipnóticos.",
-          "avatar": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=200"
+          "name": "Axel Alexander Mamani Quispia",
+          "role": "Developer",
+          "bio": "Desarrollador Full-Stack enfocado en interfaces de usuario interactivas, optimización de rendimiento en el frontend y modelado de datos.",
+          "avatar": ""
         }
       ]
     }
