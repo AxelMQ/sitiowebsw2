@@ -1,4 +1,4 @@
-import { transporter } from '../config/mail.js';
+import { sendEmail } from '../config/mail.js';
 
 export async function sendEmailHandler(req, res) {
   const { name, email, ticketNumber, message } = req.body;
@@ -65,20 +65,28 @@ export async function sendEmailHandler(req, res) {
 
   try {
     // Send email to administrator
-    await transporter.sendMail(mailToAdminOptions);
+    await sendEmail({
+      to: companyEmail,
+      subject: `[Soporte Incidente] Nuevo caso de ${name} (${ticketNumber || 'Nuevo'})`,
+      html: mailToAdminOptions.html
+    });
     
     // Attempt sending confirmation copy to user (fail silently if user email is fake or blocklist, to avoid breaking flow)
     try {
-      await transporter.sendMail(mailToUserOptions);
+      await sendEmail({
+        to: email,
+        subject: `Confirmación de Recepción - ${companyName} (Ticket ${ticketNumber || 'Pendiente'})`,
+        html: mailToUserOptions.html
+      });
     } catch (errUser) {
       console.warn("No se pudo enviar copia al correo del cliente:", errUser.message);
     }
 
     res.json({ success: true, message: "Solicitud registrada y notificada por correo exitosamente." });
   } catch (error) {
-    console.error("Error al enviar correos de soporte SMTP:", error);
+    console.error("Error al enviar correos de soporte via Brevo:", error);
     res.status(500).json({ 
-      error: "Ocurrió un error en el servidor de correo SMTP al intentar enviar tu solicitud. Verifica las credenciales de Gmail." 
+      error: "Ocurrió un error en el servidor de correo al intentar enviar tu solicitud. Verifica la configuración de la clave de Brevo." 
     });
   }
 }
