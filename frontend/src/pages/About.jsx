@@ -141,7 +141,7 @@ export default function About() {
                 <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
                   <span className="text-[10px] font-mono text-slate-400">IP: 127.0.0.{idx + 1}</span>
                   <a
-                    href="https://github.com"
+                    href={member.github || "https://github.com"}
                     target="_blank"
                     rel="noreferrer"
                     className="p-2 rounded-xl bg-slate-50 border border-slate-200 hover:border-teal-500/50 hover:bg-slate-100 text-slate-500 hover:text-teal-600 transition-all focus:outline-none"

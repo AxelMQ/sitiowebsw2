@@ -96,14 +96,16 @@
           "name": "Fernando Daniel Cossio Aranda",
           "role": "Developer",
           "bio": "Desarrollador Full-Stack especializado en arquitectura backend, infraestructura cloud y diseño de API robustas y escalables.",
-          "avatar": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200"
+          "avatar": "",
+          "github": "https://github.com/FernandoCossio"
         },
         {
           "id": "m2",
           "name": "Axel Alexander Mamani Quispia",
           "role": "Developer",
           "bio": "Desarrollador Full-Stack enfocado en interfaces de usuario interactivas, optimización de rendimiento en el frontend y modelado de datos.",
-          "avatar": ""
+          "avatar": "",
+          "github": "https://github.com/AxelMQ"
         }
       ]
     }
