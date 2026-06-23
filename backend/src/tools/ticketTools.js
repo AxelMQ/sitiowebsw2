@@ -17,12 +17,14 @@ export const checkTicketStatusTool = {
 
 export function mockCheckTicketStatus(ticketNumber) {
   const statuses = ['En Progreso', 'Resuelto', 'Esperando respuesta del cliente', 'En Análisis del Core Team'];
+  const developers = ['Fernando Daniel Cossio Aranda', 'Axel Alexander Mamani Quispia'];
   const randomIndex = Math.floor(Math.random() * statuses.length);
+  const randomDevIndex = Math.floor(Math.random() * developers.length);
   return {
     ticketNumber: ticketNumber,
     status: statuses[randomIndex],
     updatedAt: new Date().toLocaleDateString(),
-    assignedDeveloper: 'Alex Mercer',
+    assignedDeveloper: developers[randomDevIndex],
     description: 'Verificación de recursos y contenedores en la nube.'
   };
 }

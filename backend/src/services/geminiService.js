@@ -59,19 +59,14 @@ Tu objetivo es dar soporte de primer nivel, derivar clientes al área de ventas 
 
       const ticketResult = mockCheckTicketStatus(ticketNumber);
 
-      response = await chat.sendMessage({
-        message: [
-          {
-            role: 'function',
-            parts: [{
-              functionResponse: {
-                name: 'checkTicketStatus',
-                response: ticketResult
-              }
-            }]
+      response = await chat.sendMessage([
+        {
+          functionResponse: {
+            name: 'checkTicketStatus',
+            response: ticketResult
           }
-        ]
-      });
+        }
+      ]);
     }
   }
 
