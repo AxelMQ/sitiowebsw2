@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ShieldCheck, Heart, Sparkles } from 'lucide-react';
 import contentData from '../data/content.json';
@@ -7,6 +7,29 @@ export default function Footer() {
   const { companyName, companySlogan, navigation } = contentData;
   const logoText = companyName.split('|')[0].trim();
   const currentYear = new Date().getFullYear();
+
+  const [apiStatus, setApiStatus] = useState('VERIFICANDO'); // 'OPERATIVO', 'DESCONECTADO', 'SIN_KEY'
+
+  useEffect(() => {
+    const checkHealth = async () => {
+      try {
+        const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+        const response = await fetch(`${apiUrl}/api/health`);
+        if (!response.ok) throw new Error();
+        const data = await response.json();
+        if (data.hasApiKey) {
+          setApiStatus('OPERATIVO');
+        } else {
+          setApiStatus('SIN_KEY');
+        }
+      } catch (err) {
+        setApiStatus('DESCONECTADO');
+      }
+    };
+    checkHealth();
+    const interval = setInterval(checkHealth, 10000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <footer className="border-t border-slate-800 bg-[#0B1A30] text-slate-300 py-12">
@@ -30,13 +53,38 @@ export default function Footer() {
             </p>
             
             {/* API Status */}
-            <div className="inline-flex items-center space-x-2 rounded-full bg-teal-950/40 border border-teal-500/20 px-3 py-1 text-xs text-teal-400">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-500"></span>
-              </span>
-              <span>Enlace Gemini: OPERATIVO</span>
-            </div>
+            {apiStatus === 'OPERATIVO' && (
+              <div className="inline-flex items-center space-x-2 rounded-full bg-emerald-950/40 border border-emerald-500/20 px-3 py-1 text-xs text-emerald-400 shadow-[0_0_10px_rgba(16,185,129,0.1)]">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                <span>Enlace IA: OPERATIVO</span>
+              </div>
+            )}
+            {apiStatus === 'SIN_KEY' && (
+              <div className="inline-flex items-center space-x-2 rounded-full bg-amber-950/40 border border-amber-500/20 px-3 py-1 text-xs text-amber-400 shadow-[0_0_10px_rgba(245,158,11,0.1)]">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+                </span>
+                <span>Enlace IA: FALTA API KEY</span>
+              </div>
+            )}
+            {apiStatus === 'DESCONECTADO' && (
+              <div className="inline-flex items-center space-x-2 rounded-full bg-rose-950/40 border border-rose-500/20 px-3 py-1 text-xs text-rose-400 shadow-[0_0_10px_rgba(244,63,94,0.1)]">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-rose-500"></span>
+                </span>
+                <span>Enlace IA: DESCONECTADO</span>
+              </div>
+            )}
+            {apiStatus === 'VERIFICANDO' && (
+              <div className="inline-flex items-center space-x-2 rounded-full bg-slate-800/40 border border-slate-700/20 px-3 py-1 text-xs text-slate-400 animate-pulse">
+                <span>Enlace IA: VERIFICANDO...</span>
+              </div>
+            )}
           </div>
 
           {/* Quick Links */}
