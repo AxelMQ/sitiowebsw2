@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Terminal, ShieldCheck, Heart, Sparkles } from 'lucide-react';
+import { ShieldCheck, Heart, Sparkles } from 'lucide-react';
 import contentData from '../data/content.json';
 
 export default function Footer() {
@@ -17,8 +17,8 @@ export default function Footer() {
           <div className="md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
               <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-teal-400 to-indigo-600 p-[1px]">
-                <div className="flex h-full w-full items-center justify-center rounded-lg bg-[#0B1A30]">
-                  <Terminal className="h-4 w-4 text-teal-400" />
+                <div className="flex h-full w-full items-center justify-center rounded-lg bg-[#0B1A30] overflow-hidden">
+                  <img src="/logo.png" alt="Lumos Logic Logo" className="h-full w-full object-cover" />
                 </div>
               </div>
               <span className="text-lg font-semibold tracking-wider text-white">

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import { Terminal, Menu, X, Sparkles } from 'lucide-react';
+import { Menu, X, Sparkles } from 'lucide-react';
 import contentData from '../data/content.json';
 
 export default function Navbar() {
@@ -17,8 +17,8 @@ export default function Navbar() {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 group">
             <div className="relative flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-teal-400 to-indigo-600 p-[1px] shadow-[0_0_15px_rgba(20,184,166,0.3)] group-hover:shadow-[0_0_20px_rgba(20,184,166,0.5)] transition-all duration-300">
-              <div className="flex h-full w-full items-center justify-center rounded-xl bg-[#0B1A30]">
-                <Terminal className="h-5 w-5 text-teal-400 group-hover:text-indigo-400 transition-colors" />
+              <div className="flex h-full w-full items-center justify-center rounded-xl bg-[#0B1A30] overflow-hidden">
+                <img src="/logo.png" alt="Lumos Logic Logo" className="h-full w-full object-cover" />
               </div>
               <Sparkles className="absolute -top-1 -right-1 h-4 w-4 text-teal-300 animate-pulse" />
             </div>
